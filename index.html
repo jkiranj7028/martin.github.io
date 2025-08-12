@@ -4,26 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Martin's Personal Website</title>
+  <meta name="description" content="Martin's portfolio: Software Engineer, Tech Enthusiast, and fast learner.">
+  <link rel="icon" href="favicon.ico">
   <style>
+    :root {
+      --primary: #333;
+      --secondary: #555;
+      --bg: #f9f9f9;
+      --accent: #2196F3;
+    }
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background: #f9f9f9;
-      color: #333;
+      background: var(--bg);
+      color: var(--primary);
     }
-    header, section, footer {
+    header, main, footer {
       max-width: 800px;
       margin: auto;
       padding: 20px;
     }
     header {
-      background-color: #333;
+      background-color: var(--primary);
       color: #fff;
       text-align: center;
+      border-radius: 0 0 8px 8px;
     }
     h1 {
       margin: 0;
+    }
+    section {
+      margin-bottom: 24px;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: var(--secondary);
     }
     form input, form textarea {
       width: 100%;
@@ -31,17 +51,29 @@
       margin: 10px 0;
       border: 1px solid #ccc;
       border-radius: 5px;
+      box-sizing: border-box;
+    }
+    form label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
     }
     form button {
-      background-color: #333;
+      background-color: var(--primary);
       color: white;
       padding: 10px 15px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      margin-top: 10px;
     }
     form button:hover {
-      background-color: #555;
+      background-color: var(--secondary);
+    }
+    @media (max-width: 600px) {
+      header, main, footer {
+        padding: 10px;
+      }
     }
   </style>
 </head>
@@ -52,32 +84,43 @@
   <p>Software Engineer | Tech Enthusiast</p>
 </header>
 
-<section>
-  <h2>About Me</h2>
-  <p>I’m a software engineer who loves learning new technical skills. Whether it’s exploring a new programming language or diving into design tools, I’m always looking to grow and improve.</p>
-  <p>When I’m not coding, you’ll probably find me reading books, chatting with friends, watching movies, or geeking out over cool software and games.</p>
-</section>
+<main>
+  <section>
+    <h2>About Me</h2>
+    <p>I’m a software engineer who loves learning new technical skills. Whether it’s exploring a new programming language or diving into design tools, I’m always looking to grow and improve.</p>
+    <p>When I’m not coding, you’ll probably find me reading books, chatting with friends, watching movies, or geeking out over cool software and games.</p>
+  </section>
 
-<section>
-  <h2>Skills</h2>
-  <ul>
-    <li>Coding (especially Python)</li>
-    <li>Design</li>
-    <li>Fast learner with a passion for tech</li>
-  </ul>
-</section>
+  <section>
+    <h2>Skills</h2>
+    <ul>
+      <li>Coding (especially Python)</li>
+      <li>Design</li>
+      <li>Fast learner with a passion for tech</li>
+    </ul>
+  </section>
 
-<section>
-  <h2>Contact Me</h2>
-  <p>Email: <a href="mailto:marting@gmail.cm">marting@gmail.cm</a></p>
-  <form action="https://formspree.io/f/your-form-id" method="POST">
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-    <button type="submit">Send</button>
-  </form>
-  <p><small>* Note: Replace "your-form-id" with your Formspree ID to make the contact form work.</small></p>
-</section>
+  <section>
+    <h2>Contact Me</h2>
+    <p>Email: <a href="mailto:marting@gmail.com">marting@gmail.com</a></p>
+    <form action="https://formspree.io/f/your-form-id" method="POST" autocomplete="on">
+      <label for="name">Name</label>
+      <input type="text" name="name" id="name" placeholder="Your Name" required autocomplete="name">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="Your Email" required autocomplete="email">
+      <label for="message">Message</label>
+      <textarea name="message" id="message" rows="5" placeholder="Your Message" required></textarea>
+      <!-- Honeypot anti-spam field -->
+      <input type="text" name="_gotcha" style="display:none">
+      <button type="submit">Send</button>
+    </form>
+    <p><small>* Note: Replace "your-form-id" with your Formspree ID to make the contact form work.</small></p>
+    <p>
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a> |
+      <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
+    </p>
+  </section>
+</main>
 
 <footer>
   <p style="text-align: center;">&copy; 2025 Martin. All rights reserved.</p>
