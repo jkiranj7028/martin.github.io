@@ -8,71 +8,147 @@
   <link rel="icon" href="favicon.ico">
   <style>
     :root {
-      --primary: #333;
-      --secondary: #555;
-      --bg: #f9f9f9;
-      --accent: #2196F3;
+      --primary: #232946;
+      --secondary: #eebbc3;
+      --accent: #f5f7fa;
+      --highlight: #ff8906;
+      --card-bg: #d3d6e9;
+      --text-dark: #232946;
+      --text-light: #fff;
+      --btn-bg: #ff8906;
+      --btn-hover: #e86424;
     }
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background: var(--bg);
-      color: var(--primary);
-    }
-    header, main, footer {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+      color: var(--text-dark);
+      min-height: 100vh;
     }
     header {
-      background-color: var(--primary);
-      color: #fff;
+      background: var(--primary);
+      color: var(--text-light);
       text-align: center;
-      border-radius: 0 0 8px 8px;
+      padding: 32px 20px 24px 20px;
+      border-radius: 0 0 32px 32px;
+      box-shadow: 0 4px 20px rgba(35,41,70,0.15);
     }
     h1 {
+      margin: 0 0 8px 0;
+      font-size: 2.5em;
+      letter-spacing: 1px;
+    }
+    header p {
+      font-size: 1.25em;
+      letter-spacing: 0.5px;
       margin: 0;
     }
+    main {
+      max-width: 800px;
+      margin: 28px auto;
+      padding: 0 20px;
+    }
     section {
-      margin-bottom: 24px;
+      background: var(--card-bg);
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(35,41,70,0.10);
+      margin-bottom: 28px;
+      padding: 24px 20px;
+      transition: box-shadow 0.2s;
+    }
+    section:hover {
+      box-shadow: 0 6px 24px rgba(35,41,70,0.16);
+    }
+    h2 {
+      color: var(--primary);
+      margin-top: 0;
+    }
+    ul {
+      padding-left: 20px;
     }
     a {
-      color: var(--accent);
+      color: var(--highlight);
       text-decoration: none;
-      transition: color 0.2s;
+      font-weight: 600;
+      transition: color 0.15s;
     }
     a:hover {
-      color: var(--secondary);
-    }
-    form input, form textarea {
-      width: 100%;
-      padding: 10px;
-      margin: 10px 0;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-      box-sizing: border-box;
+      color: var(--btn-hover);
+      text-decoration: underline;
     }
     form label {
       display: block;
-      margin-top: 10px;
+      margin-top: 16px;
+      margin-bottom: 4px;
       font-weight: bold;
+      color: var(--primary);
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1.5px solid var(--primary);
+      border-radius: 6px;
+      background: var(--accent);
+      color: var(--text-dark);
+      font-size: 1em;
+      box-sizing: border-box;
+      transition: border-color 0.2s;
+    }
+    form input:focus, form textarea:focus {
+      border-color: var(--highlight);
+      outline: none;
     }
     form button {
-      background-color: var(--primary);
-      color: white;
-      padding: 10px 15px;
+      background-color: var(--btn-bg);
+      color: var(--text-light);
+      padding: 12px 22px;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       cursor: pointer;
-      margin-top: 10px;
+      font-size: 1.1em;
+      font-weight: bold;
+      transition: background 0.2s;
+      margin-top: 8px;
+      box-shadow: 0 2px 8px rgba(255,137,6,0.08);
     }
     form button:hover {
-      background-color: var(--secondary);
+      background-color: var(--btn-hover);
+    }
+    .social-links {
+      margin-top: 18px;
+      text-align: center;
+    }
+    .social-links a {
+      margin: 0 12px;
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background: var(--highlight);
+      color: var(--text-light);
+      font-weight: bold;
+      transition: background 0.18s, color 0.18s;
+    }
+    .social-links a:hover {
+      background: var(--btn-hover);
+      color: var(--accent);
+    }
+    footer {
+      background: var(--primary);
+      color: var(--text-light);
+      text-align: center;
+      padding: 18px 0;
+      border-radius: 32px 32px 0 0;
+      box-shadow: 0 -2px 8px rgba(35,41,70,0.09);
+      margin-top: 32px;
     }
     @media (max-width: 600px) {
       header, main, footer {
         padding: 10px;
+      }
+      section {
+        padding: 14px 8px;
       }
     }
   </style>
@@ -115,15 +191,16 @@
       <button type="submit">Send</button>
     </form>
     <p><small>* Note: Replace "your-form-id" with your Formspree ID to make the contact form work.</small></p>
-    <p>
-      <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a> |
+    <div class="social-links">
+      <a href="https://github.com/yourusername" target="_blank" rel="noopener">GitHub</a>
       <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener">LinkedIn</a>
-    </p>
+      <!-- Add more social links as needed -->
+    </div>
   </section>
 </main>
 
 <footer>
-  <p style="text-align: center;">&copy; 2025 Martin. All rights reserved.</p>
+  <p>&copy; 2025 Martin. All rights reserved.</p>
 </footer>
 
 </body>
